@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RegisterationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Registeration.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" />
+    <Property Name="password_" Type="varchar" MaxLength="255" />
+    <Property Name="age" Type="int" />
+    <Property Name="gender" Type="varchar" MaxLength="255" />
+    <Property Name="phone_number" Type="varchar" MaxLength="11" />
+    <Property Name="city" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="RegisterationModelStoreContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[userID] AS [userID], 
+    [Users].[username] AS [username], 
+    [Users].[password_] AS [password_], 
+    [Users].[age] AS [age], 
+    [Users].[gender] AS [gender], 
+    [Users].[phone_number] AS [phone_number], 
+    [Users].[city] AS [city]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
